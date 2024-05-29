@@ -42,12 +42,10 @@ public class UserSla implements ISla {
 
   public Boolean isSlaMet() {
     return getOptionalDueDateTime()
-      .flatMap(dueDt ->
-        Optional.ofNullable(
-          getOptionalEndDateTime()
-            .map(endDt -> endDt.isBefore(dueDt))
-            .orElseGet(() -> LocalDateTime.now().isAfter(dueDt) ? false : null)
-        )
+      .map(dueDt ->
+        getOptionalEndDateTime()
+          .map(endDt -> endDt.isBefore(dueDt))
+          .orElseGet(() -> LocalDateTime.now().isAfter(dueDt) ? false : null)
       )
       .orElse(null);
   }
