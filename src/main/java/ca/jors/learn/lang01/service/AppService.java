@@ -21,21 +21,21 @@ public class AppService {
 
   public static void run1() {
     var userSla = new UserSla();
-    log.info(DDT_MESSAGE, userSla.getDueDateTime());
+    log.info(DDT_MESSAGE, userSla.getOptionalDueDateTime());
     userSla.setSlaHours(5L);
-    log.info(DUE_MESSAGE, userSla.getDueDateTime());
+    log.info(DUE_MESSAGE, userSla.getOptionalDueDateTime());
     userSla.start();
-    log.info(DUE_MESSAGE, userSla.getDueDateTime());
+    log.info(DUE_MESSAGE, userSla.getOptionalDueDateTime());
     log.info(SLA_MET_MESSAGE, userSla.isSlaMet());
   }
 
   public static void slaMet() {
     var userSla = new UserSla();
-    log.info(DDT_MESSAGE, userSla.getDueDateTime());
+    log.info(DDT_MESSAGE, userSla.getOptionalDueDateTime());
     userSla.start();
-    log.info(DUE_MESSAGE, userSla.getDueDateTime());
+    log.info(DUE_MESSAGE, userSla.getOptionalDueDateTime());
     userSla.setSlaHours(5L);
-    log.info(DUE_MESSAGE, userSla.getDueDateTime());
+    log.info(DUE_MESSAGE, userSla.getOptionalDueDateTime());
     log.info(END_MESSAGE, userSla.getEndDateTime());
     userSla.end();
     log.info(END_MESSAGE, userSla.getEndDateTime());
@@ -44,11 +44,11 @@ public class AppService {
 
   public static void slaNotMet() {
     var userSla = new UserSla();
-    log.info(DDT_MESSAGE, userSla.getDueDateTime());
+    log.info(DDT_MESSAGE, userSla.getOptionalDueDateTime());
     userSla.start();
-    log.info(DUE_MESSAGE, userSla.getDueDateTime());
+    log.info(DUE_MESSAGE, userSla.getOptionalDueDateTime());
     userSla.setSlaHours(-1L);
-    log.info(DUE_MESSAGE, userSla.getDueDateTime());
+    log.info(DUE_MESSAGE, userSla.getOptionalDueDateTime());
     log.info(END_MESSAGE, userSla.getEndDateTime());
     userSla.end();
     log.info(END_MESSAGE, userSla.getEndDateTime());
